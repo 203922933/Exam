@@ -36,26 +36,4 @@ public class DBConnection {
 			}
 		}
 	}
-	
-//	public static void main(String[] args) {
-//		Connection con = null;
-//		ResultSet rl = null;
-//		Statement st = null;
-//		try {
-//			con = DBConnection.getConnection();
-//			st = con.createStatement();
-//			rl = st.executeQuery("SELECT * FROM t_manager");
-//			while(rl.next()) {
-//				System.out.println(rl.getInt(1));
-//				System.out.println(rl.getString(2));
-//				System.out.println(rl.getString(3));
-//			}
-//		}catch (SQLException e) {
-//			e.printStackTrace();
-//		}finally {
-//			if (con != null) {
-//				DBConnection.closeConnection();
-//			}
-//		}
-//	}
 }
