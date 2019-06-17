@@ -1,6 +1,6 @@
 package bean;
 
-public class Scores {
+public class Score {
 	private int id;					//记录主键
 	private String username;		//考生姓名
 	private String subjectname;		//试卷名

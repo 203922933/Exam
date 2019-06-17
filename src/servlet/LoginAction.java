@@ -8,7 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bean.Student;
 import db.DBCommon;
+import db.DBStudent;
 
 /**
  * Servlet implementation class LoginAction
@@ -62,6 +64,8 @@ public class LoginAction extends HttpServlet {
 			 */
 			break;
 		case 2:
+			Student student = new DBStudent().getStudent(username);
+			request.getSession().setAttribute("student", student);
 			/**
 			 * 学生登陆
 			 */
