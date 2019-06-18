@@ -15,6 +15,11 @@ import db.DBCommon;
 /**
  * Servlet implementation class ExamListAction
  * 获取考试列表
+ * 参数:
+ * 无
+ * 返回参数:
+ * 参数名	参数类型
+ * subList	List<Subject>
  */
 @WebServlet("/ExamListAction")
 public class ExamListAction extends HttpServlet {
@@ -43,12 +48,16 @@ public class ExamListAction extends HttpServlet {
 		// TODO Auto-generated method stub
 		int type = (int) request.getSession().getAttribute("type");
 		List<Subject>  subList = new DBCommon().getSubList();
+		request.getSession().setAttribute("subList", subList);
+		
 		
 		if(type == 1) {
+			
 			/**
 			 * 跳转管理员老师考试列表界面
 			 */
 		}else if(type == 2) {
+			
 			/**
 			 * 跳转学生考试列表界面
 			 */

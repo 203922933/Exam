@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,16 +13,17 @@ import bean.Student;
 import db.DBStudent;
 
 /**
- * Servlet implementation class RegisterAction
+ * Servlet implementation class GetStudentListAction
+ * 获取学生列表
  */
-@WebServlet("/RegisterAction")
-public class RegisterAction extends HttpServlet {
+@WebServlet("/GetStudentListAction")
+public class GetStudentListAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RegisterAction() {
+    public GetStudentListAction() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,32 +41,11 @@ public class RegisterAction extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		DBStudent db_stu = new DBStudent();
+		List<Student> stuList = new DBStudent().getStudentList();
 		
-		if (!db_stu.checkusername(request.getParameter("username"))) {
-			String username = request.getParameter("username");
-			String password = request.getParameter("password");
-			String usermail = request.getParameter("usermail");
-			String usertel = request.getParameter("usertel");
-			String address = request.getParameter("address");
-			
-			Student student = new Student();
-			student.setUsername(username);
-			student.setPassword(password);
-			student.setUsermail(usermail);
-			student.setUsertel(usertel);
-			student.setAddress(address);
-			
-			db_stu.register(student);
-			/**
-			 * 注册成功跳转
-			 */
-		}else {
-			/**
-			 * 注册失败跳转
-			 */
-		}
-		
+		/**
+		 * 跳转
+		 */
 	}
 
 }
