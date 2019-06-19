@@ -58,7 +58,7 @@
         <p id="pwamessage" class="text-danger"><br></p>
         <label class="text-left w-100">
             邮箱：
-            <input type="email" class="form-control" name="useremail" id="email">
+            <input type="email" class="form-control" name="usermail" id="email">
         </label>
         <p id="emailmessage" class="text-danger"><br></p>
         <label class="text-left w-100">
