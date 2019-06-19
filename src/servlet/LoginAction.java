@@ -51,7 +51,8 @@ public class LoginAction extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String username = request.getParameter("username");
+		String path = request.getContextPath();
+		String username = request.getParameter("  name");
 		String password = request.getParameter("password");
 		int type = new DBCommon().check(username, password);
 		
@@ -62,6 +63,8 @@ public class LoginAction extends HttpServlet {
 			/**
 			 * 登陆失败
 			 */
+			request.getSession().setAttribute("message", "-1");
+			response.sendRedirect(path+"/User/Login.jsp");
 			break;
 		case 1:
 			/**

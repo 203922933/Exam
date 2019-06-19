@@ -1,0 +1,13 @@
+.border-radius{
+    border:1px solid  #E0FFFF;
+    -moz-border-radius: 13px;
+    -webkit-border-radius: 13px;
+    border-radius:13px;
+    opacity:0.95;
+    filter:alpha(opacity=95);
+}
+.blur {
+    border: 1px solid #dc3545;
+    background-color: #f8d7da;
+}
+

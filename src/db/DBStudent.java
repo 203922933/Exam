@@ -28,7 +28,7 @@ public class DBStudent {
 			con = DBConnection.getConnection();
 			prs = con.prepareStatement("INSERT INTO t_student "
 					+ "(username, password, usermail, usertel, address) "
-					+ "value (?,?,?,?,?)");
+					+ "values (?,?,?,?,?)");
 			prs.setString(1, student.getUsername());
 			prs.setString(2, student.getPassword());
 			prs.setString(3, student.getUsermail());

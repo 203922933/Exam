@@ -39,14 +39,20 @@ public class RegisterAction extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("utf-8");
 		DBStudent db_stu = new DBStudent();
-		
+		String path = request.getContextPath();
 		if (!db_stu.checkusername(request.getParameter("username"))) {
 			String username = request.getParameter("username");
 			String password = request.getParameter("password");
+			String passwordagin = request.getParameter("passagin");
+			if(!password.equals(passwordagin)) {
+				request.getSession().setAttribute("message", 0);
+				response.sendRedirect(path+"/User/Register.jsp");
+			}
 			String usermail = request.getParameter("usermail");
 			String usertel = request.getParameter("usertel");
-			String address = request.getParameter("address");
+			String address = request.getParameter("province")+"-"+request.getParameter("city");
 			
 			Student student = new Student();
 			student.setUsername(username);
@@ -63,6 +69,8 @@ public class RegisterAction extends HttpServlet {
 			/**
 			 * 注册失败跳转
 			 */
+			request.getSession().setAttribute("message", 1);
+			response.sendRedirect(path+"/User/Register.jsp");
 		}
 		
 	}
