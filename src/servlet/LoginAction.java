@@ -52,10 +52,12 @@ public class LoginAction extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String path = request.getContextPath();
-		String username = request.getParameter("  name");
+		String username = request.getParameter("username");
 		String password = request.getParameter("password");
+		System.out.println(username +"+"+ password);
 		int type = new DBCommon().check(username, password);
 		
+		System.out.println(type);
 		request.getSession().setAttribute("type", type);
 
 		switch (type) {
@@ -66,12 +68,12 @@ public class LoginAction extends HttpServlet {
 			request.getSession().setAttribute("message", "-1");
 			response.sendRedirect(path+"/User/Login.jsp");
 			break;
-		case 1:
+		case 0:
 			/**
 			 * 管理员老师登陆
 			 */
 			break;
-		case 2:
+		case 1:
 			Student student = new DBStudent().getStudent(username);
 			request.getSession().setAttribute("student", student);
 			/**

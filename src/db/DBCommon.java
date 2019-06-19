@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,8 +13,8 @@ import bean.Subject;
 public class DBCommon {
 	private int type = -1;			//登陆类型 -1登陆失败 1管理员登陆 2学生登陆
 	private String[] loginCheckSQL = {
-			"SELECT password FROM manager WHERE name = ",
-			"SELECT password FROM student WHERE username = "};
+			"SELECT password FROM manager WHERE name = ?",
+			"SELECT password FROM student WHERE username = ?"};
 	
 	private String paperListSQL = "SELECT * FROM subject";
 	
@@ -24,14 +23,13 @@ public class DBCommon {
 	 * 登陆验证
 	 * 返回值说明：
 	 * -1:查询失败
-	 * 1 :管理员登陆
-	 * 2 :学生登陆
+	 * 0 :管理员登陆
+	 * 1 :学生登陆
 	 * @param username
 	 * @param password
 	 * @return
 	 */
 	public int check(String username, String password) {
-		System.out.println(type);
 		for (int i=0; i<loginCheckSQL.length; i++) {
 			if (isuser(username, password, loginCheckSQL[i])) {
 				type = i;
@@ -41,14 +39,19 @@ public class DBCommon {
 		return type;
 	}
 	
+	public static void main(String[] args) {
+		System.out.println(new DBCommon().check("mrpresident", "root123"));
+	}
+	
 	private boolean isuser(String username, String password, String sql) {
 		ResultSet rs = null;
-		Statement st = null;
+		PreparedStatement st = null;
 		Connection con =null;
 		try {
 			con = DBConnection.getConnection();
-			st = con.createStatement();
-			rs = st.executeQuery(sql+username);
+			st = con.prepareStatement(sql);
+			st.setString(1, username);
+			rs = st.executeQuery();
 			while (rs.next()) {
 				if (password.equals(rs.getString("password"))) {
 					st.close();
