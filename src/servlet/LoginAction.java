@@ -15,7 +15,12 @@ import db.DBStudent;
 /**
  * Servlet implementation class LoginAction
  * 登陆验证接口
- * 跳转路径没写 
+ * 参数:
+ * 参数名
+ * username
+ * password
+ * 返回参数:
+ * 无
  */
 @WebServlet("/LoginAction")
 public class LoginAction extends HttpServlet {

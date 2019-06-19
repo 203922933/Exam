@@ -17,11 +17,12 @@ import bean.Question;
 import bean.Score;
 import bean.Student;
 import bean.Subject;
-import db.DBStudent;
+import db.DBScore;
 
 /**
  * Servlet implementation class ExamResultAction
  *  提交考试获取考试结果
+ *  答案
  */
 
 @WebServlet("/ExamResultAction")
@@ -55,6 +56,7 @@ public class ExamResultAction extends HttpServlet {
 		
 		int sum = 0;
 		int singleper = subject.getSingleper();
+		
 		/**
 		 * 
 		 */
@@ -78,7 +80,7 @@ public class ExamResultAction extends HttpServlet {
 		df.format(new Date());
 		score.setEndtime(df.toString());
 		
-		new DBStudent().AddScore(score);
+		new DBScore().AddScore(score);
 		
 		request.getSession().setAttribute("result", score);
 		/**
