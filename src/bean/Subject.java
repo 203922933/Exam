@@ -37,4 +37,5 @@ public class Subject {
 	public void setTesttime(int testtime) {
 		this.testtime = testtime;
 	}
+	
 }
