@@ -77,7 +77,8 @@ public class ExamResultAction extends HttpServlet {
 		score.setSubjectname(subject.getSubjectname());
 		score.setScore(sum);
 		SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmm");
-		score.setEndtime(df.format(new Date()).toString());
+		df.format(new Date());
+		score.setEndtime(df.toString());
 		
 		new DBScore().AddScore(score);
 		
