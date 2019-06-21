@@ -72,7 +72,7 @@
     </div>
     <div class="bg-white col-1"></div>
     <div class="container btn-group-lg text-center col-8 mt-5">
-        <a href="#"><button class="btn btn-primary">选择考试</button></a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="<%=path%>/ExamListAction"><button class="btn btn-primary">选择考试</button></a>&nbsp;&nbsp;&nbsp;&nbsp;
         <a href="#"><button class="btn btn-primary">考试记录</button></a>
     </div>
 </div>
