@@ -53,12 +53,12 @@ public class QuesListAction extends HttpServlet {
 		int type  = (int) request.getSession().getAttribute("type");
 		
 		List<Question> db_ques = new DBCommon().getQues(subject.getSubjectname());
-		if(type == 1) {
+		if(type == 0) {
 			request.getSession().setAttribute("quesList", db_ques);
 			/**
 			 * 跳转管理员老师界面
 			 */
-		}else if(type == 2) {
+		}else if(type == 1) {
 			Random random = new Random();
 			for (int i=0; i<db_ques.size()-subject.getSinglenumber(); i++) {
 				db_ques.remove(random.nextInt(db_ques.size()));
