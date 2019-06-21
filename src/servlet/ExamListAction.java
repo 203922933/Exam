@@ -53,6 +53,7 @@ public class ExamListAction extends HttpServlet {
 		
 		if(type == 0) {
 			
+			response.sendRedirect(path+"/Manager/ExamList.jsp");
 			/**
 			 * 跳转管理员老师考试列表界面
 			 */

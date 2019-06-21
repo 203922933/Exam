@@ -150,5 +150,24 @@ public class DBStudent {
 		}
 	}
 	
-	
+	/*
+	 * 删除学生
+	 */
+	public void delStudent(int id) {
+		Student student= new Student();
+		Connection con = null;
+		PreparedStatement pStmt = null;
+		try {
+			con = DBConnection.getConnection();
+			pStmt = con.prepareStatement("DELETE FROM student WHERE id = ?");
+			pStmt.setInt(1, id);
+			pStmt.executeUpdate();
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			if(con != null) {
+				DBConnection.closeConnection();
+			}
+		}
+	}
 }

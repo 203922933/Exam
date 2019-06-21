@@ -46,6 +46,7 @@ public class GetScoreAction extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String path = request.getContextPath();
 		Student student = (Student) request.getSession().getAttribute("student");
 		List<Score> scList = new DBScore().getScoreList(student);
 		
@@ -53,7 +54,7 @@ public class GetScoreAction extends HttpServlet {
 		/**
 		 * 跳转
 		 */
-		
+		response.sendRedirect(path+"/");
 	}
 
 }

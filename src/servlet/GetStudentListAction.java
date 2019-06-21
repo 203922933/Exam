@@ -42,10 +42,12 @@ public class GetStudentListAction extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		List<Student> stuList = new DBStudent().getStudentList();
-		
+		String path = request.getContextPath();
+		request.getSession().setAttribute("stuList", stuList);
 		/**
 		 * 跳转
 		 */
+		response.sendRedirect(path+"/Manager/StudentList.jsp");
 	}
 
 }

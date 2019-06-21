@@ -65,8 +65,7 @@
             <label><b>邮&nbsp;&nbsp;&nbsp;箱：<%=student.getUsermail() %></b></label><br><br>
             <label><b>地&nbsp;&nbsp;&nbsp;址：<%=student.getAddress() %></b></label><br><br>
             <div class="container btn-group text-center">
-                <a href="#"><button class="btn btn-primary">修改信息</button></a>&nbsp;&nbsp;
-                <a href="#" ><button class="btn btn-danger">退出登录</button></a>
+                <a href="<%=path%>/QuitLoginAction" ><button class="btn btn-danger">退出登录</button></a>
             </div>
         </div>
     </div>

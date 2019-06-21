@@ -74,7 +74,7 @@
     <div class="row bg-light1 py-1">
         <label class="text-left col-10 text-10">欢迎登录,<b><%=student.getUsername()%></b></label>
         <div class="text-right col-2">
-            <a href="#"><button class="btn btn-sm btn-danger">退出登录</button></a>
+            <a href="<%=path%>/QuitLoginAction"><button class="btn btn-sm btn-danger">退出登录</button></a>
         </div>
     </div>
 </div>
@@ -86,8 +86,8 @@
     <%
     	if(list.size()!=0){
     		out.println("<div class='container bg-light mt-0'>");
-	    	for(int i=pg*8; i<list.size(); i++){
-	    		if(i%8 == 0){
+	    	for(int i=0; i<list.size(); i++){
+	    		if(i%4 == 0){
 	    			out.println("<div class='row pb-2'>");
 	    		}	
     			Subject subject = list.get(i);
@@ -99,12 +99,12 @@
                     <label>题量：<%=subject.getSinglenumber() %></label><br>
                     <label>时长：<%=subject.getTesttime() %>分钟</label>
                     <div class="container text-center">
-                        <a href=""><button class="btn btn-sm btn-primary">开始考试</button></a>
+                        <a href="<%=path%>/QuesListAction?id=<%=subject.getId()%>"><button class="btn btn-sm btn-primary">开始考试</button></a>
                     </div>
                 </div>
             </div>
     <%
-	    		if((i+1)%8 == 0){
+	    		if((i+1)%4 == 0){
 					out.println("</div>");
 				}
     		}
@@ -112,70 +112,6 @@
     	}
     %>
     
-        <%if(pgall>0 && pgall<=7){
-        	out.println("<nav class='mx-0 px-0'><ul class='pagination'>");
-          	if(pg == 0){
-          		out.println("<li class='page-item'><a class='page-link'>Previous</a></li>");
-          	}else{
-          		out.println("<li class='page-item'><a class='page-link' href='"+path+"/User/Chiose.jsp?page="+(pg-1)+"'>Previous</a></li>");
-          	}
-          	for(int i=0; i<pgall; i++){
-          		if(i == pg){
-          			out.print("<li class='page-item active'><a class='page-link' >"+page+"</a></li>");
-          			continue;
-          		}
-          		out.print("<li class='page-item'><a class='page-link' href='"+path+"/User/Chiose.jsp?page="+i+"'>"+(i+1)+"</a></li>");
-          	}
-          	if(pg == pg-1){
-          		out.println("<li class='page-item'><a class='page-link'>Next</a></li>");
-          	}else{
-          		out.println("<li class='page-item'><a class='page-link' href='"+path+"/User/Chiose.jsp?page="+(pg+1)+"'>Next</a></li>");
-          	}
-          	out.println("</ul></nav>");
-        }else if(pgall>7 && pg>=3 && pg<pgall-4){
-        	out.println("<nav class='mx-0 px-0'><ul class='pagination'>");
-          	if(pg == 0){
-          		out.println("<li class='page-item'><a class='page-link'>Previous</a></li>");
-          	}else{
-          		out.println("<li class='page-item'><a class='page-link' href='"+path+"/User/Chiose.jsp?page="+(pg-1)+"'>Previous</a></li>");
-          	}
-          	for(int i=pg-3; i<pg; i++){
-          		out.print("<li class='page-item active'><a class='page-link' href='"+path+"/User/Chiose.jsp?page="+i+"'>"+(i+1)+"</a></li>");
-          	}
-          	out.print("<li class='page-item active'><a class='page-link' >"+page+"</a></li>");
-          	for(int i=pg+1; i<pg+4; i++){
-          		out.print("<li class='page-item'><a class='page-link' href='"+path+"/User/Chiose.jsp?page="+i+"'>"+(i+1)+"</a></li>");
-          	}
-          	if(pg == pg-1){
-          		out.println("<li class='page-item'><a class='page-link'>Next</a></li>");
-          	}else{
-          		out.println("<li class='page-item'><a class='page-link' href='"+path+"/User/Chiose.jsp?page="+(pg+1)+"'>Next</a></li>");
-          	}
-          	out.println("</ul></nav>");
-        }else if(pgall>7 && pg>=pgall-4){
-        	out.println("<nav class='mx-0 px-0'><ul class='pagination'>");
-          	if(pg == 0){
-          		out.println("<li class='page-item'><a class='page-link'>Previous</a></li>");
-          	}else{
-          		out.println("<li class='page-item'><a class='page-link' href='"+path+"/User/Chiose.jsp?page="+(pg-1)+"'>Previous</a></li>");
-          	}
-          	for(int i=pgall-7; i<pgall; i++){
-          		if(i == pg){
-          			out.print("<li class='page-item active'><a class='page-link' >"+page+"</a></li>");
-          			continue;
-          		}
-          		out.print("<li class='page-item'><a class='page-link' href='"+path+"/User/Chiose.jsp?page="+i+"'>"+(i+1)+"</a></li>");
-          	}
-          	if(pg == pg-1){
-          		out.println("<li class='page-item'><a class='page-link'>Next</a></li>");
-          	}else{
-          		out.println("<li class='page-item'><a class='page-link' href='"+path+"/User/Chiose.jsp?page="+(pg+1)+"'>Next</a></li>");
-          	}
-          	out.println("</ul></nav>");
-        }
-        %>
-        
-    </div>
 </div>
 </body>
 </html>

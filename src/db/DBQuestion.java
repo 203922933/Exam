@@ -146,4 +146,76 @@ public class DBQuestion {
 		}
 	}
 	
+	public Question getQuestionById(int id) {
+		Question question = null;
+		Connection con = null;
+		ResultSet rs = null;
+		PreparedStatement pst = null;
+		
+		try {
+			con = DBConnection.getConnection();
+			pst = con.prepareStatement("SELECT * FROM question WHERE id=?");
+			pst.setInt(1, id);
+			rs = pst.executeQuery();
+			if(rs.next()) {
+				question = new Question();
+				question.setId(rs.getInt("id"));
+				question.setQuestion(rs.getString("question"));
+				question.setSubjectname(rs.getString("subjectname"));
+				question.setA(rs.getString("A"));
+				question.setB(rs.getString("B"));
+				question.setC(rs.getString("C"));
+				question.setD(rs.getString("D"));
+				question.setAnswer(rs.getString("answer"));
+				question.setWeight(rs.getInt("weight"));
+				
+			}
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			if(con != null) {
+				DBConnection.closeConnection();
+			}
+		}
+		
+		return question;
+	}
+	
+	/*
+	 * 根据题库名字查找所有题
+	 */
+	public List<Question> getAllQuestionsByName(String name){
+		List<Question> quesList = new ArrayList<>();
+		Connection con = null;
+		ResultSet rs = null;
+		PreparedStatement pst = null;
+		
+		try {
+			con = DBConnection.getConnection();
+			pst = con.prepareStatement("SELECT * FROM question WHERE subjectname=?");
+			pst.setString(1, name);
+			rs = pst.executeQuery();
+			while(rs.next()) {
+				Question question = new Question();
+				question.setId(rs.getInt("id"));
+				question.setQuestion(rs.getString("question"));
+				question.setSubjectname(rs.getString("subjectname"));
+				question.setA(rs.getString("A"));
+				question.setB(rs.getString("B"));
+				question.setC(rs.getString("C"));
+				question.setD(rs.getString("D"));
+				question.setAnswer(rs.getString("answer"));
+				question.setWeight(rs.getInt("weight"));
+				quesList.add(question);
+			}
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			if(con != null) {
+				DBConnection.closeConnection();
+			}
+		}
+		
+		return quesList;
+	}
 }

@@ -39,28 +39,23 @@ public class QuesAlterAction extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		/*
-		 * 获取参数
-		 * id
-		 * question
-		 * A,B,C,D
-		 * answer
-		 * weight
-		 * subjectname
-		 */
+		request.setCharacterEncoding("utf-8");
+		String path = request.getContextPath();
+		int id = Integer.parseInt(request.getParameter("id"));
+		Question question = new DBQuestion().getQuestionById(id);
+		question.setQuestion(request.getParameter("question"));
+		question.setA(request.getParameter("selectA"));
+		question.setB(request.getParameter("selectB"));
+		question.setC(request.getParameter("selectC"));
+		question.setD(request.getParameter("selectD"));
+		question.setAnswer(request.getParameter("answer"));
 		
-		
-		
-		Question question = new Question();
-		/*
-		 * set()
-		 */
-		
-		
+
 		new DBQuestion().alterQues(question);
 		/*
 		 * 跳转
 		 */
+		response.sendRedirect(path+"/GetAllQuesitionAction?name="+question.getSubjectname());
 	}
 
 }

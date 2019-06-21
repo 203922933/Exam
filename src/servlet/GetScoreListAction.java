@@ -40,6 +40,7 @@ public class GetScoreListAction extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String path = request.getContextPath();
 		List<Score> scList = new DBScore().getScoreAllList();
 		
 		request.getSession().setAttribute("scList", scList);
@@ -47,6 +48,7 @@ public class GetScoreListAction extends HttpServlet {
 		/**
 		 * 跳转
 		 */
+		response.sendRedirect(path+"/User/History.jsp");
 	}
 
 }

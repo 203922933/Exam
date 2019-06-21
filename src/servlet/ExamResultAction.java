@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import bean.Question;
 import bean.Score;
@@ -50,41 +51,33 @@ public class ExamResultAction extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		Subject subject = (Subject) request.getSession().getAttribute("selsub");
-		Student student = (Student) request.getSession().getAttribute("student");
-		List<Question> quesList = (List<Question>) request.getSession().getAttribute("quesList");
-		
+		String path = request.getContextPath();
+		HttpSession session = request.getSession();
+		Subject subject = (Subject)session.getAttribute("selsub");
+		Student student = (Student)session.getAttribute("student");
+		List<Question> quesList = (List<Question>)session.getAttribute("quesList");
+		int scoreid = (int)session.getAttribute("scoreid"); 
+		session.removeAttribute("selsub");
+		session.removeAttribute("queList");
+		session.removeAttribute("scoreid");
 		int sum = 0;
 		int singleper = subject.getSingleper();
-		
-		/**
-		 * 
-		 */
-		Map<Integer, String> ansMap = new HashMap<>(); //id 答案
-		/**
-		 * 
-		 * 
-		 */
-		
-		for (Question ques : quesList) {
-			if(ansMap.get(ques.getId()).equals(ques.getAnswer())) {
+		for(int i=0; i<quesList.size(); i++) {
+			String ans = request.getParameter("question"+i);
+			if(ans == null) {
+				continue;
+			}
+			if(quesList.get(i).getAnswer().equals(ans)) {
 				sum += singleper;
 			}
 		}
-		
-		Score score = new Score();
-		score.setUsername(student.getUsername());
-		score.setSubjectname(subject.getSubjectname());
-		score.setScore(sum);
-		SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmm");
-		score.setEndtime(df.format(new Date()).toString());
-		
-		new DBScore().AddScore(score);
-		
-		request.getSession().setAttribute("result", score);
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		String endtime = df.format(new Date()).toString();
+		new DBScore().UpdateScore(sum, endtime, scoreid);
 		/**
 		 * 跳转
 		 */
+		response.sendRedirect(path+"/GetScoreAction");
 	}
 
 }

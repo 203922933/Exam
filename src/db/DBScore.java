@@ -37,7 +37,29 @@ public class DBScore {
 			}
 		}
 	}
-	
+	/*
+	 *修改成绩
+	 */
+	public void UpdateScore(int score,String endtime, int id) {
+		PreparedStatement pStmt = null;
+		Connection con = null;
+		
+		try {
+			con = DBConnection.getConnection();
+			pStmt = con.prepareStatement("UPDATE scores SET score=?, endtime=? "
+					+ "WHERE id=?");
+			pStmt.setInt(1, score);
+			pStmt.setString(2, endtime);
+			pStmt.setInt(3, id);
+			pStmt.executeUpdate();
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			if(con != null) {
+				DBConnection.closeConnection();
+			}
+		}
+	}
 	
 	/**
 	 * 获取成绩
