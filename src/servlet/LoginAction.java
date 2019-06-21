@@ -79,6 +79,7 @@ public class LoginAction extends HttpServlet {
 			/**
 			 * 学生登陆
 			 */
+			response.sendRedirect(path+"/User/Main.jsp");
 			break;
 		}
 	}
