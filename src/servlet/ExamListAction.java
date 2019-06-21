@@ -51,12 +51,12 @@ public class ExamListAction extends HttpServlet {
 		request.getSession().setAttribute("subList", subList);
 		
 		
-		if(type == 1) {
+		if(type == 0) {
 			
 			/**
 			 * 跳转管理员老师考试列表界面
 			 */
-		}else if(type == 2) {
+		}else if(type == 1) {
 			
 			/**
 			 * 跳转学生考试列表界面
