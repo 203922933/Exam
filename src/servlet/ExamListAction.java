@@ -60,7 +60,7 @@ public class ExamListAction extends HttpServlet {
 			
 			response.sendRedirect(path+"/User/Chiose.jsp");
 			/**
-			 * 跳转学生考试列表界面
+			 * 跳转学生考试列表的界面
 			 */
 		}
 		
