@@ -9,7 +9,7 @@ public class DBConnection {
 			+"?useUnicode=true&characterEncoding=utf-8"
 			+"&useSSL=false&serverTimezone=UTC&";
 	private static String dbusername = "root";
-	private static String dbpassword = "czl990914.";
+	private static String dbpassword = "990914";
 	
 	private static Connection con;
 	
