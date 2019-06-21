@@ -51,10 +51,6 @@ public class ExamListAction extends HttpServlet {
 		List<Subject>  subList = new DBCommon().getSubList();
 		request.getSession().setAttribute("subList", subList);
 		
-<<<<<<< HEAD
-=======
-		
->>>>>>> branch 'master' of https://github.com/203922933/Exam.git
 		if(type == 0) {
 			
 			/**
