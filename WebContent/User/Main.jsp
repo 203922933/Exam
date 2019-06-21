@@ -11,14 +11,14 @@
     <meta charset="UTF-8">
     <title>注册</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
-    <link type="text/css" rel="stylesheet" href="css/main.css">
+    <link type="text/css" rel="stylesheet" href="<%=path %>/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="<%=path %>/css/main.css">
     <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="<%=path %>/js/jquery-3.3.1.min.js"></script>
     <!-- popper.min.js 用于弹窗、提示、下拉菜单 -->
-    <script src="js/popper.min.js"></script>
+    <script src="<%=path %>/js/popper.min.js"></script>
     <!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="<%=path %>/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div class="container">
