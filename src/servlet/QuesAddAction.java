@@ -53,6 +53,7 @@ public class QuesAddAction extends HttpServlet {
 		question.setAnswer(request.getParameter("anwser"));
 		question.setWeight(0);
 		question.setSubjectname(request.getParameter("name"));
+		System.out.println(question.getQuestion());
 		new DBQuestion().insertQues(question);
 		
 		/*

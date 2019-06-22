@@ -56,7 +56,7 @@
         <div class="text-center">
         <div class="btn-group">
             <button class="btn btn-lg btn-primary" type="button" id="login">登录</button>&nbsp;&nbsp;
-            <a href="<%=path%>/User/Register.jsp"><button class="btn btn-lg btn-success" type="button" id="register">注册</button></a>
+            <a href="<%=path%>/User/Register.jsp" target="_blank"><button class="btn btn-lg btn-success" type="button" id="register">注册</button></a>
         </div>
         </div>
         <br>

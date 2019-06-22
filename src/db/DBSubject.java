@@ -2,7 +2,9 @@ package db;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+
 
 import bean.Subject;
 
@@ -90,4 +92,34 @@ public class DBSubject {
 		}
 	}
 	
+	/*
+	 * 按id查找试卷
+	 */
+	public Subject getSubject(int id) {
+		Subject subject = null;
+		Connection con = null;
+		PreparedStatement pStmt = null;
+		ResultSet rs = null;
+		try {
+			con = DBConnection.getConnection();
+			pStmt = con.prepareStatement("SELECT * FROM subject WHERE id=?");
+			pStmt.setInt(1, id);
+			rs = pStmt.executeQuery();
+			if(rs.next()) {
+				subject = new Subject();
+				subject.setId(rs.getInt("id"));
+				subject.setSubjectname(rs.getString("subjectname"));
+				subject.setSinglenumber(rs.getInt("singlenumber"));
+				subject.setSingleper(rs.getInt("singleper"));
+				subject.setTesttime(rs.getInt("testtime"));
+			}
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			if(con != null) {
+				DBConnection.closeConnection();
+			}
+		}
+		return subject;
+	}
 }

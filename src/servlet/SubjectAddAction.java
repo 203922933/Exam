@@ -39,13 +39,7 @@ public class SubjectAddAction extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		/*
-		 * 获取数据 
-		 * subjectname
-		 * singleper
-		 * singlenuber
-		 * testtime
-		 */
+		
 		String path = request.getContextPath();
 		request.setCharacterEncoding("utf-8");
 		Subject subject = new Subject();
@@ -53,7 +47,7 @@ public class SubjectAddAction extends HttpServlet {
 		subject.setSingleper(Integer.parseInt(request.getParameter("fenzhi")));
 		subject.setSinglenumber(Integer.parseInt(request.getParameter("num")));
 		subject.setTesttime(Integer.parseInt(request.getParameter("time")));
-		
+		System.out.println(subject.getSubjectname());
 		new DBSubject().insertSub(subject);
 		
 		/*

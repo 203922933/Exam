@@ -47,16 +47,22 @@ public class SubjectAlterAction extends HttpServlet {
 		 * singlenumber
 		 * testtime
 		 */
-		
-		Subject subject = new Subject();
+		request.setCharacterEncoding("utf-8");
+		String path = request.getContextPath();
+		int id = Integer.parseInt(request.getParameter("id"));
+		Subject subject = new DBSubject().getSubject(id);
 		/*
 		 * 设置set()
 		 */
+		subject.setSingleper(Integer.parseInt(request.getParameter("fenzhi")));
+		subject.setSinglenumber(Integer.parseInt(request.getParameter("num")));
+		subject.setTesttime(Integer.parseInt(request.getParameter("time")));
 		
 		new DBSubject().alterSub(subject);
 		/*
 		 * 跳转
 		 */
+		response.sendRedirect(path+"/ExamListAction");
 	}
 
 }

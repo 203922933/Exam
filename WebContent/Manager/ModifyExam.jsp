@@ -1,9 +1,13 @@
+<%@page import="db.DBSubject"%>
+<%@page import="bean.Subject"%>
 <%@page import="bean.Manager"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
 	String path = request.getContextPath();
 	Manager manager = (Manager)session.getAttribute("manager");
+	int id = Integer.parseInt(request.getParameter("id"));
+	Subject subject = new DBSubject().getSubject(id);
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -63,16 +67,17 @@
 </div>
 <div class="container mt-5 mb-3 px-0">
     <div class="bg-light1 px-2">
-        <h4>添加题库</h4>
+        <h4>修改题库</h4>
         <hr class="mb-0 pb-2">
     </div>
     <div class="container text-center">
-    <form method="post" action="<%=path%>/SubjectAddAction">
-        <label class="text-left w-50">考试名称：<input class="form-control" type="text" name="name"></label><br>
-        <label class="text-left w-50">单题分值：<input class="form-control" type="text" name="fenzhi"></label><br>
-        <label class="text-left w-50">考题数量：<input class="form-control" type="text" name="num"></label><br>
-        <label class="text-left w-50">考试时长（分钟）：<input class="form-control" type="text" name="time"></label><br>
-      	<button class="btn btn-primary" type="submit">添加题库</button>
+    <form method="post" action="<%=path%>/SubjectAlterAction">
+    	<input name="id" style="display: none" value="<%=subject.getId()%>">
+        <label class="text-left w-50">考试名称：<b><%=subject.getSubjectname()%></b></label><br>
+        <label class="text-left w-50">单题分值：<input class="form-control" type="text" value="<%=subject.getSingleper() %>" name="fenzhi"></label><br>
+        <label class="text-left w-50">考题数量：<input class="form-control" type="text" value="<%=subject.getSinglenumber() %>" name="num"></label><br>
+        <label class="text-left w-50">考试时长（分钟）：<input class="form-control" type="text" value="<%=subject.getTesttime() %>" name="time"></label><br>
+      	<button class="btn btn-primary" type="submit">修改题库</button>
     </form>
     </div>
 </div>

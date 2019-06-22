@@ -11,14 +11,14 @@
     <meta charset="UTF-8">
     <title>管理员</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
-    <link type="text/css" rel="stylesheet" href="css/chiose.css">
+    <link type="text/css" rel="stylesheet" href="<%=path %>/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="<%=path %>/css/chiose.css">
     <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="<%=path %>/js/jquery-3.3.1.min.js"></script>
     <!-- popper.min.js 用于弹窗、提示、下拉菜单 -->
-    <script src="js/popper.min.js"></script>
+    <script src="<%=path %>/js/popper.min.js"></script>
     <!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="<%=path %>/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div class="container">
@@ -63,9 +63,9 @@
 </div>
 <div class="container mt-5 px-0 text-center">
     <div class="btn-group">
-        <a href="<%=path%>/GetStudentListAction"><button class="btn btn-lg btn-primary">成员管理</button></a>
-        <a href="<%=path%>/ExamListAction"><button class="btn btn-lg btn-primary ml-5">题库管理</button></a>
-        <a href="<%=path%>/"><button class="btn btn-lg btn-primary ml-5">考试记录</button></a>
+        <a href="<%=path%>/GetStudentListAction" target="_blank"><button class="btn btn-lg btn-primary" >成员管理</button></a>
+        <a href="<%=path%>/ExamListAction" target="_blank"><button class="btn btn-lg btn-primary ml-5">题库管理</button></a>
+        <a href="<%=path%>/GetScoreListAction" target="_blank"><button class="btn btn-lg btn-primary ml-5">考试记录</button></a>
     </div>
 </div>
 </body>

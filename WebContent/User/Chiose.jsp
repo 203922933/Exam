@@ -99,7 +99,7 @@
                     <label>题量：<%=subject.getSinglenumber() %></label><br>
                     <label>时长：<%=subject.getTesttime() %>分钟</label>
                     <div class="container text-center">
-                        <a href="<%=path%>/QuesListAction?id=<%=subject.getId()%>"><button class="btn btn-sm btn-primary">开始考试</button></a>
+                        <a href="<%=path%>/QuesListAction?id=<%=subject.getId()%>" target="_blank"><button class="btn btn-sm btn-primary">开始考试</button></a>
                     </div>
                 </div>
             </div>

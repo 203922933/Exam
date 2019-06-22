@@ -48,7 +48,7 @@ public class GetScoreListAction extends HttpServlet {
 		/**
 		 * 跳转
 		 */
-		response.sendRedirect(path+"/Record.jsp");
+		response.sendRedirect(path+"/Manager/Record.jsp");
 	}
 
 }

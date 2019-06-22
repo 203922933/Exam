@@ -5,7 +5,6 @@
 <%
 	String path = request.getContextPath();
 	List<Subject>list = (List)session.getAttribute("subList");
-	session.removeAttribute("subList");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -84,14 +83,14 @@
     			Subject subject = list.get(i);
     	%>
     		<div class="card bg-light page mb-2 col-3">
-                <img class="card-img-top cardimg" src="img/course.jpg">
+                <img class="card-img-top cardimg" src="<%=path %>/img/course.jpg">
                 <div class="card-body bg-light">
                     <label><h5><%=subject.getSubjectname() %></h5></label>
                     <label>题量：<%=subject.getSinglenumber() %></label><br>
                     <label>时长：<%=subject.getTesttime() %></label>
                     <div class="container text-center btn-group">
-                        <a href="<%=path%>/GetAllQuesitionAction?name=<%=subject.getSubjectname()%>"><button class="btn btn-sm btn-primary">所有试题</button></a>&nbsp;
-                        <a href="<%=path%>/Manager/UpdateExam.jsp?id=<%=subject.getId()%>"><button class="btn btn-sm btn-primary">修改</button></a>&nbsp;
+                        <a href="<%=path%>/GetAllQuesitionAction?name=<%=subject.getSubjectname()%>" target="_blank"><button class="btn btn-sm btn-primary">所有试题</button></a>&nbsp;
+                        <a href="<%=path%>/Manager/UpdateExam.jsp?id=<%=subject.getId()%>" target="_blank"><button class="btn btn-sm btn-primary">修改</button></a>&nbsp;
                         <a href="<%=path%>/SubjectDelAction?id=<%=subject.getId()%>"><button class="btn btn-sm btn-primary">删除</button></a>
                     </div>
                 </div>

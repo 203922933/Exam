@@ -29,7 +29,7 @@
     <div class="bg-ls text-center py-3">
         <div class="mx-5 text-left mt-5">
             <label><h3><%=name%></h3></label><br>
-            <a href="<%=path%>/Manager/AddQuestion.jsp?name=<%=name%>"><button class="mt-2 btn btn-sm btn-primary">添加试题</button></a>
+            <a href="<%=path%>/Manager/AddQuestion.jsp?name=<%=name%>" target="_blank"><button class="mt-2 btn btn-sm btn-primary">添加试题</button></a>
         </div>
     </div>
     <%
@@ -45,7 +45,7 @@
         <label><p>D.<%=que.getD() %></p></label><br>
         <label class="text-success">正确答案：<%=que.getAnswer() %></label>
         <div class="container btn-group px-0">
-            <a href="<%=path%>/UpdateQuestion.jsp?id=<%=que.getId()%>"><button class="btn btn-sm btn-primary">修改</button></a>&nbsp;&nbsp;
+            <a href="<%=path%>/UpdateQuestion.jsp?id=<%=que.getId() %>" target="_blank"><button class="btn btn-sm btn-primary">修改</button></a>&nbsp;&nbsp;
             <a href="<%=path%>/QuesDelAction?id=<%=que.getId()%>"><button class="btn btn-sm btn-danger">删除</button></a>
         </div>
     </div>

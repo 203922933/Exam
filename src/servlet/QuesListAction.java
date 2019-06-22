@@ -67,7 +67,7 @@ public class QuesListAction extends HttpServlet {
 			 */
 		}else if(type == 1) {
 			
-			Student student = (Student)request.getAttribute("student");
+			Student student = (Student)request.getSession().getAttribute("student");
 			Score score = new Score();
 			score.setUsername(student.getUsername());
 			score.setSubjectname(subject.getSubjectname());

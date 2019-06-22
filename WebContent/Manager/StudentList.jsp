@@ -5,7 +5,6 @@
 <%
 	String path = request.getContextPath();
 	List<Student>list = (List)session.getAttribute("stuList");
-	session.removeAttribute("stuList");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -89,8 +88,9 @@
             <td><%=student.getUsertel() %></td>
             <td><%=student.getUsermail() %></td>
             <td><%=student.getAddress() %></td>
-            <td><a href="<%=path%>/DelStudentAction?id=<%=student.getId()%>">
-            	<button class="btn btn-sm btn-danger">注销用户</button>
+            <td>
+            	<a href="<%=path%>/DelStudentAction?id=<%=student.getId()%>">
+            		<button class="btn btn-sm btn-danger">注销用户</button>
             	</a>
             </td>
         </tr>

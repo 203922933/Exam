@@ -65,6 +65,7 @@ public class RegisterAction extends HttpServlet {
 			/**
 			 * 注册成功跳转
 			 */
+			response.sendRedirect(path+"/User/Login.jsp");
 		}else {
 			/**
 			 * 注册失败跳转
