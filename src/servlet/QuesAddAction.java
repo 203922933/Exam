@@ -50,7 +50,7 @@ public class QuesAddAction extends HttpServlet {
 		question.setB(request.getParameter("selectB"));
 		question.setC(request.getParameter("selectC"));
 		question.setD(request.getParameter("selectD"));
-		question.setAnswer(request.getParameter("anwser"));
+		question.setAnswer(request.getParameter("answer"));
 		question.setWeight(0);
 		question.setSubjectname(request.getParameter("name"));
 		System.out.println(question.getQuestion());

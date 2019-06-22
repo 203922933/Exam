@@ -121,7 +121,7 @@ public class DBCommon {
 		try {
 			con = DBConnection.getConnection();
 			pStmt = con.prepareStatement("SELECT * FROM question WHERE subjectname = ?");
-			pStmt.setString(0, subjectname);
+			pStmt.setString(1, subjectname);
 			rs = pStmt.executeQuery();
 			while(rs.next()) {
 				Question question = new Question();

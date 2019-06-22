@@ -60,6 +60,7 @@ public class QuesListAction extends HttpServlet {
 		int type  = (int) request.getSession().getAttribute("type");
 		
 		List<Question> db_ques = new DBCommon().getQues(subject.getSubjectname());
+		
 		if(type == 0) {
 			request.getSession().setAttribute("quesList", db_ques);
 			/**
@@ -75,7 +76,7 @@ public class QuesListAction extends HttpServlet {
 			long etime1=System.currentTimeMillis()+subject.getTesttime()*60*1000;
 			SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 			Date date = new Date(etime1);
-			score.setEndtime(df.format(date.toString()));
+			score.setEndtime(df.format(date).toString());
 			new DBScore().AddScore(score);
 			List<Score>list = new DBScore().getScoreList(student);
 			request.getSession().setAttribute("scoreid", list.get(list.size()-1).getId());
