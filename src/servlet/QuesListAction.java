@@ -50,6 +50,7 @@ public class QuesListAction extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("utf-8");
 		int id = Integer.parseInt(request.getParameter("id"));
 		String path = request.getContextPath();
 		

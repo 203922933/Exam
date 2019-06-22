@@ -43,6 +43,7 @@ public class QuesDelAction extends HttpServlet {
 		 * 获取参数
 		 * id
 		 */
+		request.setCharacterEncoding("utf-8");
 		String path = request.getContextPath();
 		int id = Integer.parseInt(request.getParameter("id"));
 		Question que = new DBQuestion().getQuestionById(id);
@@ -50,7 +51,7 @@ public class QuesDelAction extends HttpServlet {
 		/*
 		 * 跳转
 		 */
-		response.sendRedirect(path+"/GetAllQuesitionAction?name="+que.getSubjectname());
+		response.sendRedirect(path+"/GetAllQuesitionAction");
 	}
 
 }

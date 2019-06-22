@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
+	request.setCharacterEncoding("utf-8");
 	String path = request.getContextPath();
 	Student student = (Student)session.getAttribute("student");
 %>
@@ -72,7 +73,7 @@
     <div class="bg-white col-1"></div>
     <div class="container btn-group-lg text-center col-8 mt-5">
         <a href="<%=path%>/ExamListAction" target="_blank"><button class="btn btn-primary">选择考试</button></a>&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="#"><button class="btn btn-primary" target="_blank">考试记录</button></a>
+        <a href="<%=path%>/GetScoreAction"><button class="btn btn-primary" target="_blank">考试记录</button></a>
     </div>
 </div>
 </div>

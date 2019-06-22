@@ -1,7 +1,6 @@
 $(function () {
 
     var time = parseInt((parseInt($("#endtime").val() ) - new Date().getTime())/1000);
-    alert(new Date().getTime());
     var min = parseInt(time/60);
     var second = time%60;
     $("#resttime").text(min+":"+second);
@@ -16,7 +15,6 @@ $(function () {
             $("#exam").submit();
             alert("考试结束!")
             clearInterval(timer);
-
         }
     }, 1000)
 

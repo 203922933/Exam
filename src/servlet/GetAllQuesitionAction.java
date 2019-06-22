@@ -43,6 +43,10 @@ public class GetAllQuesitionAction extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		String path = request.getContextPath();
 		String subname = request.getParameter("name");
+		if(subname == null) {
+			subname = (String)request.getSession().getAttribute("subName");
+		}
+		System.out.println(subname);
 		List<Question>list = new  DBQuestion().getAllQuestionsByName(subname);
 		request.getSession().setAttribute("subName", subname);
 		request.getSession().setAttribute("queListByName", list);

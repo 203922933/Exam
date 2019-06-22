@@ -41,6 +41,7 @@ public class GetStudentListAction extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("utf-8");
 		List<Student> stuList = new DBStudent().getStudentList();
 		String path = request.getContextPath();
 		request.getSession().setAttribute("stuList", stuList);

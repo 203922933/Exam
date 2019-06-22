@@ -55,7 +55,7 @@ public class QuesAlterAction extends HttpServlet {
 		/*
 		 * 跳转
 		 */
-		response.sendRedirect(path+"/GetAllQuesitionAction?name="+question.getSubjectname());
+		response.sendRedirect(path+"/GetAllQuesitionAction");
 	}
 
 }

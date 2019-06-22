@@ -4,6 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
+	request.setCharacterEncoding("utf-8");
 	String path = request.getContextPath();
 	List<Score>list = (List)session.getAttribute("scList");
 	Student student = (Student)session.getAttribute("student");
@@ -83,7 +84,7 @@
         <%for(Score score : list){ %>
         <tr>
             <td><%=score.getSubjectname()%></td>
-            <td><%=score.getEndtime() %>2019-6-15 22:38</td>
+            <td><%=score.getEndtime() %></td>
             <td><%=score.getScore() %></td>
         </tr>
         <%} %>

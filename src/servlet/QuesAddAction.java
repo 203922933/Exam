@@ -40,6 +40,7 @@ public class QuesAddAction extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
+		request.setCharacterEncoding("utf-8");
 		String path = request.getContextPath();
 		Question question = new Question();
 		/*
@@ -53,13 +54,14 @@ public class QuesAddAction extends HttpServlet {
 		question.setAnswer(request.getParameter("answer"));
 		question.setWeight(0);
 		question.setSubjectname(request.getParameter("name"));
-		System.out.println(question.getQuestion());
+		System.out.println("testxxxx    "+question.getSubjectname());
 		new DBQuestion().insertQues(question);
 		
 		/*
 		 * 跳转
 		 */
-		response.sendRedirect(path+"/GetAllQuesitionAction?name="+question.getSubjectname());
+		response.setCharacterEncoding("utf-8");
+		response.sendRedirect(path+"/GetAllQuesitionAction");
 	}
 
 }

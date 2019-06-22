@@ -47,6 +47,7 @@ public class GetScoreAction extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String path = request.getContextPath();
+		request.setCharacterEncoding("utf-8");
 		Student student = (Student) request.getSession().getAttribute("student");
 		List<Score> scList = new DBScore().getScoreList(student);
 		

@@ -7,9 +7,9 @@ import java.sql.SQLException;
 public class DBConnection {
 	private static String dbpath = "jdbc:mysql://localhost:3306/db_exam"
 			+"?useUnicode=true&characterEncoding=utf-8"
-			+"&useSSL=false&serverTimezone=UTC&";
+			+"&useSSL=false&serverTimezone=UTC";
 	private static String dbusername = "root";
-	private static String dbpassword = "990914";
+	private static String dbpassword = "980819..";
 	
 	private static Connection con;
 	

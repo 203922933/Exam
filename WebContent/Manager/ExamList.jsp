@@ -1,10 +1,13 @@
+<%@page import="bean.Manager"%>
 <%@page import="bean.Subject"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
+	request.setCharacterEncoding("utf-8");
 	String path = request.getContextPath();
 	List<Subject>list = (List)session.getAttribute("subList");
+	Manager manager = (Manager)session.getAttribute("manager");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,7 +59,7 @@
 </div>
 <div class="container mt-3">
     <div class="row bg-light1 py-1">
-        <label class="text-left col-10 text-10">欢迎管理员登录,<b>Username</b></label>
+        <label class="text-left col-10 text-10">欢迎管理员登录,<b><%=manager.getName() %></b></label>
         <div class="text-right col-2">
             <a href="#"><button class="btn btn-sm btn-danger">退出登录</button></a>
         </div>
@@ -90,7 +93,7 @@
                     <label>时长：<%=subject.getTesttime() %></label>
                     <div class="container text-center btn-group">
                         <a href="<%=path%>/GetAllQuesitionAction?name=<%=subject.getSubjectname()%>" target="_blank"><button class="btn btn-sm btn-primary">所有试题</button></a>&nbsp;
-                        <a href="<%=path%>/Manager/UpdateExam.jsp?id=<%=subject.getId()%>" target="_blank"><button class="btn btn-sm btn-primary">修改</button></a>&nbsp;
+                        <a href="<%=path%>/Manager/ModifyExam.jsp?id=<%=subject.getId()%>" target="_blank"><button class="btn btn-sm btn-primary">修改</button></a>&nbsp;
                         <a href="<%=path%>/SubjectDelAction?id=<%=subject.getId()%>"><button class="btn btn-sm btn-primary">删除</button></a>
                     </div>
                 </div>

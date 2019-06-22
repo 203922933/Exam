@@ -4,6 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
+	request.setCharacterEncoding("utf-8");
 	String path = request.getContextPath();
 	Subject subject = (Subject)session.getAttribute("selsub");
 	List<Question>list = (List)session.getAttribute("quesList");
@@ -36,7 +37,7 @@
         </div>
     </div>
     <input style="display:none;" id="endtime" value="<%=date%>">
-    <form action="#" method="post" id="exam" class="mt-3">
+    <form action="<%=path%>/ExamResultAction" method="post" id="exam" class="mt-3">
     	<%
     	for(int i=0; i<list.size(); i++){
     		Question question = list.get(i);
@@ -46,16 +47,16 @@
             <hr class="my-0">
             <p><%=question.getQuestion()%></p>
             <div class="radio">
-                <label><input type="radio" value="a" name="question<%=i%>">A.<%=question.getA() %></label>
+                <label><input type="radio" value="A" name="question<%=i%>">A.<%=question.getA() %></label>
             </div>
             <div class="radio">
-                <label><input type="radio" value="b" name="question<%=i%>">B.<%=question.getB() %></label>
+                <label><input type="radio" value="B" name="question<%=i%>">B.<%=question.getB() %></label>
             </div>
             <div class="radio">
-                <label><input type="radio" value="c" name="question<%=i%>">C.<%=question.getC() %></label>
+                <label><input type="radio" value="C" name="question<%=i%>">C.<%=question.getC() %></label>
             </div>
             <div class="radio">
-                <label><input type="radio" value="d" name="question<%=i%>">D.<%=question.getD() %></label>
+                <label><input type="radio" value="D" name="question<%=i%>">D.<%=question.getD() %></label>
             </div>
         </div>
         <%} %>

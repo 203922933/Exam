@@ -41,6 +41,7 @@ public class SubjectDelAction extends HttpServlet {
 		/*
 		 * 获取subject id
 		 */
+		request.setCharacterEncoding("utf-8");
 		String path = request.getContextPath();
 		int id = Integer.parseInt(request.getParameter("id"));
 

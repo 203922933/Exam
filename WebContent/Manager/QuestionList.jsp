@@ -3,11 +3,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
+	request.setCharacterEncoding("utf-8");
 	String path = request.getContextPath();
 	List<Question>list = (List)session.getAttribute("queListByName");
 	String name = (String)session.getAttribute("subName");
-	session.removeAttribute("queListByName");
-	session.removeAttribute("subName");
+	//session.removeAttribute("queListByName");
+	//session.removeAttribute("subName");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,7 +46,7 @@
         <label><p>D.<%=que.getD() %></p></label><br>
         <label class="text-success">正确答案：<%=que.getAnswer() %></label>
         <div class="container btn-group px-0">
-            <a href="<%=path%>/UpdateQuestion.jsp?id=<%=que.getId() %>" target="_blank"><button class="btn btn-sm btn-primary">修改</button></a>&nbsp;&nbsp;
+            <a href="<%=path%>/Manager/UpdateQuestion.jsp?id=<%=que.getId() %>" target="_blank"><button class="btn btn-sm btn-primary">修改</button></a>&nbsp;&nbsp;
             <a href="<%=path%>/QuesDelAction?id=<%=que.getId()%>"><button class="btn btn-sm btn-danger">删除</button></a>
         </div>
     </div>

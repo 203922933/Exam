@@ -47,6 +47,7 @@ public class ExamListAction extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String path = request.getContextPath();
+		request.setCharacterEncoding("utf-8");
 		int type = (int) request.getSession().getAttribute("type");
 		List<Subject>  subList = new DBCommon().getSubList();
 		request.getSession().setAttribute("subList", subList);
