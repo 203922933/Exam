@@ -44,6 +44,7 @@ public class GetAllQuesitionAction extends HttpServlet {
 		String path = request.getContextPath();
 		String subname = request.getParameter("name");
 		List<Question>list = new  DBQuestion().getAllQuestionsByName(subname);
+		request.getSession().setAttribute("subName", subname);
 		request.getSession().setAttribute("queListByName", list);
 		response.sendRedirect(path+"/Manager/QuestionList.jsp");
 	}

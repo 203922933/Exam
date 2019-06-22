@@ -9,7 +9,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>管理员</title>
+    <title>新建题库</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="css/chiose.css">
@@ -55,17 +55,25 @@
 </div>
 <div class="container mt-3">
     <div class="row bg-light1 py-1">
-        <label class="text-left col-10 text-10">欢迎管理员登录,<b><%=manager.getName() %></b></label>
+        <label class="text-left col-10 text-10">欢迎管理员登录,<b><%=manager.getName()%></b></label>
         <div class="text-right col-2">
-            <a href="<%=path%>/QuitLoginAction"><button class="btn btn-sm btn-danger">退出登录</button></a>
+            <a href="#"><button class="btn btn-sm btn-danger">退出登录</button></a>
         </div>
     </div>
 </div>
-<div class="container mt-5 px-0 text-center">
-    <div class="btn-group">
-        <a href="<%=path%>/GetStudentListAction"><button class="btn btn-lg btn-primary">成员管理</button></a>
-        <a href="<%=path%>/ExamListAction"><button class="btn btn-lg btn-primary ml-5">题库管理</button></a>
-        <a href="<%=path%>/"><button class="btn btn-lg btn-primary ml-5">考试记录</button></a>
+<div class="container mt-5 mb-3 px-0">
+    <div class="bg-light1 px-2">
+        <h4>历史记录</h4>
+        <hr class="mb-0 pb-2">
+    </div>
+    <div class="container text-center">
+    <form method="post" action="<%=path%>/SubjectAddAction">
+        <label class="text-left w-50">考试名称：<input class="form-control" type="text" name="name"></label><br>
+        <label class="text-left w-50">单题分值：<input class="form-control" type="text" name="fenzhi"></label><br>
+        <label class="text-left w-50">考题数量：<input class="form-control" type="text" name="num"></label><br>
+        <label class="text-left w-50">考试时长（分钟）：<input class="form-control" type="text" name="time"></label><br>
+      	<button class="btn btn-primary" type="submit">添加题库</button>
+    </form>
     </div>
 </div>
 </body>

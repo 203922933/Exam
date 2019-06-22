@@ -1,15 +1,19 @@
 <%@page import="bean.Manager"%>
+<%@page import="bean.Score"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
 	String path = request.getContextPath();
+	List<Score>list = (List)session.getAttribute("scList");
+	session.removeAttribute("scList");
 	Manager manager = (Manager)session.getAttribute("manager");
 %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>管理员</title>
+    <title>考试记录</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="css/chiose.css">
@@ -57,16 +61,37 @@
     <div class="row bg-light1 py-1">
         <label class="text-left col-10 text-10">欢迎管理员登录,<b><%=manager.getName() %></b></label>
         <div class="text-right col-2">
-            <a href="<%=path%>/QuitLoginAction"><button class="btn btn-sm btn-danger">退出登录</button></a>
+            <a href="#"><button class="btn btn-sm btn-danger">退出登录</button></a>
         </div>
     </div>
 </div>
-<div class="container mt-5 px-0 text-center">
-    <div class="btn-group">
-        <a href="<%=path%>/GetStudentListAction"><button class="btn btn-lg btn-primary">成员管理</button></a>
-        <a href="<%=path%>/ExamListAction"><button class="btn btn-lg btn-primary ml-5">题库管理</button></a>
-        <a href="<%=path%>/"><button class="btn btn-lg btn-primary ml-5">考试记录</button></a>
+<div class="container mt-5 px-0">
+    <div class="bg-light1 px-2">
+        <h4>历史记录</h4>
+        <hr class="mb-0 pb-2">
     </div>
+
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>用户</th>
+            <th>考试名称</th>
+            <th>结束时间</th>
+            <th>得分</th>
+        </tr>
+        </thead>
+        <tbody>
+        <%for(Score score:list){%>
+        <tr>
+            <td><%=score.getUsername() %></td>
+            <td><%=score.getSubjectname() %></td>
+            <td><%=score.getEndtime() %></td>
+            <td><%=score.getScore() %></td>
+        </tr>
+        <%} %>
+        </tbody>
+    </table>
+
 </div>
 </body>
 </html>

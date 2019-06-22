@@ -41,12 +41,14 @@ public class SubjectDelAction extends HttpServlet {
 		/*
 		 * 获取subject id
 		 */
-		int id = 0;
-		
+		String path = request.getContextPath();
+		int id = Integer.parseInt(request.getParameter("id"));
+
 		new DBSubject().delSub(id);
 		/*
 		 * 跳转
 		 */
+		response.sendRedirect(path+"/ExamListAction");
 	}
 
 }

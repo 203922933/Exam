@@ -39,25 +39,26 @@ public class QuesAddAction extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		/*
-		 * 获取参数
-		 * question
-		 * A,B,C,D
-		 * answer
-		 * weight
-		 * subjectname
-		 */
 		
+		String path = request.getContextPath();
 		Question question = new Question();
 		/*
 		 * set()
 		 */
-		
+		question.setQuestion(request.getParameter("question"));
+		question.setA(request.getParameter("selectA"));
+		question.setB(request.getParameter("selectB"));
+		question.setC(request.getParameter("selectC"));
+		question.setD(request.getParameter("selectD"));
+		question.setAnswer(request.getParameter("anwser"));
+		question.setWeight(0);
+		question.setSubjectname(request.getParameter("name"));
 		new DBQuestion().insertQues(question);
 		
 		/*
 		 * 跳转
 		 */
+		response.sendRedirect(path+"/GetAllQuesitionAction?name="+question.getSubjectname());
 	}
 
 }

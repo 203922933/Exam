@@ -8,8 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bean.Manager;
 import bean.Student;
 import db.DBCommon;
+import db.DBManager;
 import db.DBStudent;
 
 /**
@@ -72,6 +74,9 @@ public class LoginAction extends HttpServlet {
 			/**
 			 * 管理员老师登陆
 			 */
+			Manager manager = new DBManager().getManager(username);
+			request.getSession().setAttribute("manager", manager);
+			response.sendRedirect(path+"/Manager/ManagerMain.jsp");
 			break;
 		case 1:
 			Student student = new DBStudent().getStudent(username);

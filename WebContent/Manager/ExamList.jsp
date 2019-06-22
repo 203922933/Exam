@@ -64,7 +64,7 @@
     </div>
 </div>
 <div class="container text-center mt-3">
-    <a href="<%=path%>/Manager/AddExam.jsp"><button class="btn btn-primary">添加题库</button></a>
+    <a href="<%=path%>/Manager/AddExam.jsp"><button class="btn btn-primary">创建题库</button></a>
 </div>
 <div class="container mt-3 px-0">
     <div class="bg-light1 px-2">

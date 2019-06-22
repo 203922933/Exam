@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bean.Question;
 import db.DBQuestion;
 
 /**
@@ -42,12 +43,14 @@ public class QuesDelAction extends HttpServlet {
 		 * 获取参数
 		 * id
 		 */
-		int id = 0;
-		
+		String path = request.getContextPath();
+		int id = Integer.parseInt(request.getParameter("id"));
+		Question que = new DBQuestion().getQuestionById(id);
 		new DBQuestion().delQues(id);
 		/*
 		 * 跳转
 		 */
+		response.sendRedirect(path+"/GetAllQuesitionAction?name="+que.getSubjectname());
 	}
 
 }

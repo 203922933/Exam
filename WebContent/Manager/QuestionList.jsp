@@ -5,7 +5,9 @@
 <%
 	String path = request.getContextPath();
 	List<Question>list = (List)session.getAttribute("queListByName");
+	String name = (String)session.getAttribute("subName");
 	session.removeAttribute("queListByName");
+	session.removeAttribute("subName");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,11 +27,9 @@
 <body>
 <div class="container">
     <div class="bg-ls text-center py-3">
-        <div class="mx-5 text-left">
-            <label><h3>C语言程序设计</h3></label><br>
-            <label >题量：<b>50题</b></label><br>
-            <label >每题分值：<b>1</b></label><br>
-            <label>考试时长：<b>12:00</b></label><br>
+        <div class="mx-5 text-left mt-5">
+            <label><h3><%=name%></h3></label><br>
+            <a href="<%=path%>/Manager/AddQuestion.jsp?name=<%=name%>"><button class="mt-2 btn btn-sm btn-primary">添加试题</button></a>
         </div>
     </div>
     <%

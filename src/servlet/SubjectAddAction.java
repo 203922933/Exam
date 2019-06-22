@@ -46,20 +46,20 @@ public class SubjectAddAction extends HttpServlet {
 		 * singlenuber
 		 * testtime
 		 */
-		
+		String path = request.getContextPath();
+		request.setCharacterEncoding("utf-8");
 		Subject subject = new Subject();
-		/*
-		 * set()
-		 */
-		
-		
+		subject.setSubjectname(request.getParameter("name"));
+		subject.setSingleper(Integer.parseInt(request.getParameter("fenzhi")));
+		subject.setSinglenumber(Integer.parseInt(request.getParameter("num")));
+		subject.setTesttime(Integer.parseInt(request.getParameter("time")));
 		
 		new DBSubject().insertSub(subject);
 		
 		/*
 		 * 跳转
 		 */
-		
+		response.sendRedirect(path+"/ExamListAction");
 	}
 
 }

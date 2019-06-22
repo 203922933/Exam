@@ -54,7 +54,7 @@ public class GetScoreAction extends HttpServlet {
 		/**
 		 * 跳转
 		 */
-		response.sendRedirect(path+"/");
+		response.sendRedirect(path+"/User/History.jsp");
 	}
 
 }
