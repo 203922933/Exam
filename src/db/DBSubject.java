@@ -48,14 +48,11 @@ public class DBSubject {
 		try {
 			con = DBConnection.getConnection();
 			pStmt = con.prepareStatement("UPDATE subject SET "
-<<<<<<< HEAD
 					+ "subjectname = ?,"
 					+ "singleper = ?,"
 					+ "singlenumber = ?,"
-=======
 					+ "singleper = ? ,"
 					+ "singlenumber = ? ,"
->>>>>>> branch 'master' of https://github.com/203922933/Exam.git
 					+ "testtime = ? "					
 					+ "WHERE id = ?");
 			pStmt.setInt(1, subject.getSingleper());
