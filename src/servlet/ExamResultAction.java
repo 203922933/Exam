@@ -51,6 +51,7 @@ public class ExamResultAction extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
 		request.setCharacterEncoding("utf-8");
 		String path = request.getContextPath();
 		HttpSession session = request.getSession();
@@ -58,9 +59,8 @@ public class ExamResultAction extends HttpServlet {
 		Student student = (Student)session.getAttribute("student");
 		List<Question> quesList = (List<Question>)session.getAttribute("quesList");
 		int scoreid = (int)session.getAttribute("scoreid"); 
-		session.removeAttribute("selsub");
-		session.removeAttribute("queList");
-		session.removeAttribute("scoreid");
+		
+		
 		int sum = 0;
 		int singleper = subject.getSingleper();
 		for(int i=0; i<quesList.size(); i++) {

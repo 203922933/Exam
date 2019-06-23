@@ -88,7 +88,7 @@
     		<div class="card bg-light page mb-2 col-3">
                 <img class="card-img-top cardimg" src="<%=path %>/img/course.jpg">
                 <div class="card-body bg-light">
-                    <label><h5><%=subject.getSubjectname() %></h5></label>
+                    <label><h5><%=subject.getSubjectname() %></h5></label><br>
                     <label>题量：<%=subject.getSinglenumber() %></label><br>
                     <label>时长：<%=subject.getTesttime() %></label>
                     <div class="container text-center btn-group">

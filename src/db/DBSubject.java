@@ -49,9 +49,9 @@ public class DBSubject {
 		try {
 			con = DBConnection.getConnection();
 			pStmt = con.prepareStatement("UPDATE subject SET "
-					+ "subjectname = ? "
-					+ "singleper = ? "
-					+ "singlenumber = ? "
+					+ "subjectname = ?,"
+					+ "singleper = ?,"
+					+ "singlenumber = ?,"
 					+ "testtime = ? "					
 					+ "WHERE id = ?");
 			pStmt.setString(1, subject.getSubjectname());

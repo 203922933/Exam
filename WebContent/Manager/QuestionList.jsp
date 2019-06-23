@@ -40,6 +40,7 @@
     <div class="mt-2">
         <label><b>习题<%=i+1 %></b></label>
         <hr class="my-0">
+        <label><p><%=que.getQuestion() %></p></label><br>
         <label><p>A.<%=que.getA() %></p></label><br>
         <label><p>B.<%=que.getB() %></p></label><br>
         <label><p>C.<%=que.getC() %></p></label><br>
