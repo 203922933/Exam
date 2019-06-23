@@ -95,13 +95,13 @@ public class DBQuestion {
 		try {
 			con = DBConnection.getConnection();
 			pStmt = con.prepareStatement("UPDATE question SET "
-					+ "question = ? "
-					+ "A = ? "
-					+ "B = ? "
-					+ "C = ? "
-					+ "D = ? "
-					+ "answer = ? "
-					+ "weight = ? "
+					+ "question = ? ,"
+					+ "A = ? ,"
+					+ "B = ? ,"
+					+ "C = ? ,"
+					+ "D = ? ,"
+					+ "answer = ? ,"
+					+ "weight = ? ,"
 					+ "subjectname = ? "
 					+ "WHERE id = ?");
 			pStmt.setString(1, question.getQuestion());
